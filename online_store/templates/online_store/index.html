@@ -20,7 +20,7 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Carousel</a>
+      <a class="navbar-brand" href="#">Part shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
               aria-expanded="false" aria-label="Toggle navigation">
@@ -41,21 +41,19 @@
             <a class="nav-link active" aria-current="page" href="{% url 'store-delivery' %}">Delivery</a>
           </li>
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'store-catalogue' %}">Parts we have</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'spare-parts' %}">Parts we have</a>
           </li>
              <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="new-category-create">Add a category</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'category-create' %}">Add a category</a>
           </li>
              <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url 'part-create' %}">Add a new part</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
+
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="d-flex" method="POST" action="{% url 'store-search' %}">
+            {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="result">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
         </form>
       </div>
     </div>

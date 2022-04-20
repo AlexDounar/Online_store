@@ -13,6 +13,10 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 
+    def get_absolute_url(self):
+        return reverse("store-home")
+
+
 
 # a class that is the model for a new spare part sub category
 
@@ -40,7 +44,8 @@ class SparePart(models.Model):
         return str(self.name_of_part)
 
     def get_absolute_url(self):
-        return reverse("store-home")
+        return reverse("spare-part-detail", kwargs={"pk":self.pk})
+
 
 
 # a model for saving photos for a spare part as redirection to a storage place by article of a part

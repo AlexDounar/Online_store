@@ -1,0 +1,23 @@
+{% extends 'online_store/index.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block content %}
+    <lb>
+    {% if result %}
+        <h1>You searched for {{ result }}</h1>
+        <br/>
+        {% for part in parts_found %}
+            <a href="{% url 'spare-part-detail' part.pk %}">
+            {{ part.name_of_part }}
+            {{ part.description }}
+            {{ part.price }}
+            </a><br/>
+        {% endfor %}
+    {% else %}
+        <p>Do you want to search anything?</p>
+    {% endif %}
+    </lb>
+{% endblock content %}

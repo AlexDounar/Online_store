@@ -48,3 +48,11 @@ print(sum)
 for i in range(len(list_of_rome_numbers)):
     print(list_of_rome_numbers[i +1:])
 
+
+
+{% for part in parts %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ part.name_of_part}}</h3>
+                <p>{{ part.description }}</p>
+            </div>
+        {% endfor %}

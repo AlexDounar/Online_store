@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import render, reverse, get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, DeleteView, UpdateView, CreateView
@@ -11,16 +10,16 @@ from django.forms import TextInput, BooleanField
 class NewCategory(CreateView):
     model = Category
     template_name = "online_store/new_category.html"
-    context_name = "new-category-create"
+    context_name = "category-create"
+    fields = ["category_name"]
 
     def form_valid(self, form):
         return super().form_valid(form)
 
 
-
 class SparePartCreateView(CreateView):
     model = SparePart
-    template_name = "online_store/add_part.html"
+    template_name = "online_store/sparepart_form.html"
     fields = ["name_of_part", "description", "part_number", "price", "discount",
               "active_status"]
     widgets = {'name_of_part': TextInput(attrs={
@@ -41,67 +40,41 @@ class SparePartCreateView(CreateView):
                  }
 
     def form_valid(self, form):
-        # form.instance.author = self.request.user
+        # form.instance.id = self.request.id
         return super().form_valid(form)
 
-    def get_absolute_url(self):
-        return reverse("store-home")
+    def get_queryset(self):
+        part = get_object_or_404(SparePart, id=self.kwargs.get("id"))
+        return SparePart.objects.all()
 
 
-# class NewPartName(ListView):
-#   model = NewPartName
-#   template_name = "online_store/new_part_name.html
-#   context_name = "new-part-name
+# a view, that shows the detail information of a certain part
 
-#
-# class SparePartListView(ListView):
-#     model = SparePart
-#     template_name = "online_store/home.html"
-#     context_object_name = "spare-part-detail"
-#     ordering = ["-discount"]
-#     # paginate_by = 2
+class SparePartListView(ListView):
+    model = SparePart
+    template_name = "online_store/sparepart_detail.html"
+    context_object_name = "spare-part-detail"
+    ordering = ["-discount"]
+    # ordering = ["-date_posted"]
+
+    def get_queryset(self):
+        part = get_object_or_404(SparePart, id=self.kwargs.get("id"))
+        return SparePart.objects.all()
 
 
-# class UserPostListView(ListView):
-#     model = SparePart
-#     template_name = "online_store//home.html"
-#     context_object_name = "spare_part"
-#     # ordering = ["-date_posted"]
-#     # paginate_by = 2
-#
-#     def get_queryset(self):
-#         user = get_object_or_404(User, username= self.kwargs.get("username"))
-#         return SparePart.objects.filter(author= user).order_by("-discount")
+# a view, that will show the details of a spare part
 
-#
 # class SparePartDetailView(DetailView):
 #     model = SparePart
-#
-#
-# class SparePartUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
-#     model = SparePart
-#     fields = ["name_of_part", "description", "name_of_car", "part_number", "photo", "price", "discount",
-#               "active_status"]
-
-    # def form_valid(self, form):
-    #     form.instance.author = self.request.user
-    #     return super().form_valid(form)
-    #
-    # def test_func(self):
-    #     post = self.get_object()
-    #     return post.author == self.request.user
+#     parts = SparePart.objects.all()
+    # def get_queryset(self):
+    #     part = get_object_or_404(SparePart, name_of_part=self.kwargs.get('id'))
+    #     return render('online_store/sparepart_detail.html', {'title': 'Parts we have for sale:', 'parts': part})
 
 
-# class PostDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
-#     model = SparePart
-#
-#     def form_valid(self, form):
-#         # form.instance.author = self.request.user
-#         return super().form_valid(form)
-
-    # def test_func(self):
-    #     post = self.get_object()
-    #     return post.author == self.request.user
+def parts_detail(request, part_id):
+    part = SparePart.objects.get(pk=part_id)
+    return render(request, "online_store/sparepart_detail.html", {"part": part})
 
 
 def home(request):
@@ -118,7 +91,8 @@ def contacts(request):
 
 
 def catalogue(request):
-    return render(request, 'online_store/catalogue.html', {'title': 'Catalogue'})
+    parts = SparePart.objects.all()
+    return render(request, 'online_store/catalogue.html', {'title': 'Parts we have for sale:', 'parts': parts})
 
 
 def login(request):
@@ -126,7 +100,15 @@ def login(request):
 
 
 def search(request):
-    return render(request, 'online_store/search.html', {'title': 'Search'})
+    if request.method == "POST":
+        result = request.POST['result']
+        parts_found = SparePart.objects.filter(description__contains=result)
+        return render(request, 'online_store/search_results.html', {
+            'result': result,
+            'parts_found': parts_found
+            })
+    else:
+        return render(request, 'online_store/search_results.html', {})
 
 
 def delivery(request):

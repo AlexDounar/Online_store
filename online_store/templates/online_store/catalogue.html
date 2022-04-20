@@ -3,6 +3,19 @@
 {% block title %}Catalogue{% endblock title %}
 
 {% block content %}
-<h1>Catalogue</h1>
-<p1>Enter the information you search</p1>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<h1>Parts we have for sale...</h1>
+    {% if parts %}
+        {% for part in parts %}
+             <a href="{% url 'spare-part-detail' part.pk %}">
+            <div class="alert alert-warning mt-2">
+                <h3>{{ part.name_of_part}} - {{ part.price }}</h3>
+                <p class="article-content">{{ part.description }}</p></br>
+            </div>
+             </a>
+        {% endfor %}
+    {% else %}
+        <p>Sorry, we dont have anything to sell.</p>
+    {% endif %}
 {% endblock content %}

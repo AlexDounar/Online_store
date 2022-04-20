@@ -11,30 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="648832bd-abdc-45f3-ad94-e54944448369" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0002_rename_descrition_sparepart_description.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0003_remove_sparepart_artile_number.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0004_alter_sparepart_sold_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0005_alter_sparepart_active_status.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0006_category_delete_sparepart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0007_remove_category_model_of_auto_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/migrations/0008_alter_sparepart_part_number_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/templates/online_store/add_part.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/templates/online_store/new_category.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/templates/online_store/sparepart_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/online_store/templates/online_store/sparepart_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile_pics/test.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/online_store/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/online_store/migrations/0009_alter_partimage_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/online_store/templates/online_store/search_results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/online_store/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online_store/templates/online_store/catalogue.html" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/templates/online_store/catalogue.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/online_store/templates/online_store/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/templates/online_store/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/online_store/templates/online_store/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/templates/online_store/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online_store/templates/online_store/new_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/templates/online_store/new_category.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online_store/templates/online_store/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online_store/templates/online_store/sparepart_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/templates/online_store/sparepart_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online_store/templates/online_store/sparepart_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/templates/online_store/sparepart_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/online_store/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/online_store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/online_store/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,10 +189,10 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="204" y="108" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.760@0.0.1280.760" timestamp="1649966402791" />
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1650120792779">
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup" timestamp="1650292981924">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1650120792779" />
+    <state x="303" y="81" width="672" height="678" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1650292981924" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
