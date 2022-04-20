@@ -1,0 +1,12 @@
+{% extends 'online_store/index.html'%}
+{% block content %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <h1>Part's detail</h1>
+
+            {{ part.name_of_part }}
+            {{ part.description }}
+            {{ part.price }}
+            {{ part.discount }}
+
+{% endblock content %}

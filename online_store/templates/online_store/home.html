@@ -1,0 +1,21 @@
+{% extends 'online_store/index.html' %}
+
+{% block title %}
+{{ title }}
+
+{% endblock title %}
+
+{% block content %}
+<h1>Hot deals</h1>
+    {% if parts %}
+        {% for part in parts %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ part.name_of_part}}</h3>
+                <p>{{ part.description }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Sorry, we dont have anything to sell.</p>
+    {% endif %}
+
+{% endblock content %}

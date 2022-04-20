@@ -1,0 +1,23 @@
+{% extends 'online_store/index.html'%}
+{% load crispy_forms_tags %}
+{% block title %}
+Adding a new part
+{% endblock title %}
+{% block content %}
+    <h1>Add a new spare part</h1>
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter a spare part name" class="form-control"><br>
+            <textarea placeholder="Describe the spare part" class="form-control"></textarea><br>
+            <input type="text" placeholder="Enter a spare part number" class="form-control"><br>
+            <input type="text" placeholder="Enter a spare part price" class="form-control"><br>
+            <input type="text" placeholder="Enter a spare part discount" class="form-control"><br>
+                {{ form|crispy }}
+
+            <div class="form-group">
+                <button class="btn btn-success" type="submit">Upload a new spare part</button>
+            </div>
+         </form>
+     </div>
+{% endblock %}
